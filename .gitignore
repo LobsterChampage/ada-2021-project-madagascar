@@ -128,3 +128,5 @@ dmypy.json
 # Pyre type checker
 .pyre/
 privateNotebook.ipynb
+
+Data/quotes-2020.json.bz2
