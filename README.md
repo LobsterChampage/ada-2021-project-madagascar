@@ -1,5 +1,11 @@
 # Project
 
+## Installations
+
+We requre pandas 1.3.4 and Spacy
+
+## Setup
+
 We are working in jupyter notebook with local data.
 
 Every member has to load in their own data. This can be done by downloading the compressed files from: [Drive](https://drive.google.com/drive/folders/1R-GVIdxU3jkQb5zU0uG9044Vynh9nYR1)
