@@ -84,3 +84,12 @@ Readme.md file containing the detailed project proposal (up to 1000 words). Your
 -   Organization within the team: A list of internal milestones up until project Milestone 3.
 -   Questions for TAs (optional): Add here any questions you have for us related to the proposed project.
 -   Notebook containing initial analyses and data handling pipelines. We will grade the correctness, quality of code, and quality of textual descriptions.
+
+    
+    
+    
+    
+# Abstract 
+    
+ Quotes or comments made by important people on businesses and companies could have a major impact on the business’s stock price and even net sales. For example, not so long-ago Elon musk made a tweet that Tesla will stop accepting Bitcoin as a method of payment. Shortly after that, the bitcoin price dropped dramatically. It would be interesting to extract Elon Musk’s quotes and filter those that are related to other companies or products and see how these quotes affected the companies/products' stock price. The idea of the project is to evaluate the impact Elon musk has on the financial market and see if whether his words have so much influence on the financial world or not.
+
