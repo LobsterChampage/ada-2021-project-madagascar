@@ -51,4 +51,3 @@ def get_elon_quotes(year):
         df_elo_current = current_df[current_df["speaker"]=='Elon Musk']
         df_all = pd.concat([df_all, df_elo_current], axis=0)
     return df_all
-    

@@ -46,6 +46,10 @@ chunkify('Data/quotes-2020.json.bz2',100000,'quotes-2020-')
 
 Remember to set the size to 100000 and output `quotes-2020-` with the `-` at the end. And remember to output in `Data`.
 
+##
+
+Process 1
+
 ## P2: Project proposal and initial analyses
 
 When you are done with Homework 1, you will continue to work on the next project milestone. In Milestone 2, together with your team members, you will agree on, and refine, your project proposal. Your first task is to select a project. Even though we provide the main dataset for you to use, it is your responsibility to check that what you propose is feasible given the data (including any additional data you might bring in yourself), and to perform initial analyses.
@@ -85,11 +89,6 @@ Readme.md file containing the detailed project proposal (up to 1000 words). Your
 -   Questions for TAs (optional): Add here any questions you have for us related to the proposed project.
 -   Notebook containing initial analyses and data handling pipelines. We will grade the correctness, quality of code, and quality of textual descriptions.
 
-    
-    
-    
-    
-# Abstract 
-    
- Quotes or comments made by important people on businesses and companies could have a major impact on the business’s stock price and even net sales. For example, not so long-ago Elon musk made a tweet that Tesla will stop accepting Bitcoin as a method of payment. Shortly after that, the bitcoin price dropped dramatically. It would be interesting to extract Elon Musk’s quotes and filter those that are related to other companies or products and see how these quotes affected the companies/products' stock price. The idea of the project is to evaluate the impact Elon musk has on the financial market and see if whether his words have so much influence on the financial world or not.
+# Abstract
 
+Quotes or comments made by important people on businesses and companies could have a major impact on the business’s stock price and even net sales. For example, not so long-ago Elon musk made a tweet that Tesla will stop accepting Bitcoin as a method of payment. Shortly after that, the bitcoin price dropped dramatically. It would be interesting to extract Elon Musk’s quotes and filter those that are related to other companies or products and see how these quotes affected the companies/products' stock price. The idea of the project is to evaluate the impact Elon musk has on the financial market and see if whether his words have so much influence on the financial world or not.
