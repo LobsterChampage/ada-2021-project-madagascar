@@ -2,21 +2,39 @@
 
 ## Installations
 
-We requre pandas 1.3.4 and Spacy
+We will use pandas and spacy
+
+Remember to update your libraries either with conda or pip.
+
+To install spacy with pip:
+
+```
+pip install spacy
+```
+
+We will use the en_core_web_sm and en_core_web_md for spacy which is downloaded in the terminal like this:
+
+```
+python -m spacy download en_core_web_sm
+python -m spacy download en_core_web_md
+```
 
 ## Setup
 
 We are working in jupyter notebook with local data.
 
+Every member has their own private notebook called privateNotebook.ipynb in the main folder. This file is gitignored to avoid the hassle of git conflicts if we had our notebooks public and peeked into eachothers notebooks.
+
 Every member has to load in their own data. This can be done by downloading the compressed files from: [Drive](https://drive.google.com/drive/folders/1R-GVIdxU3jkQb5zU0uG9044Vynh9nYR1)
+
+We have the data in a gitignored /Data folder.
+The .bz2 files should be named 'quotes-YEAR.json.bz2' with YEAR as the year of the quotes.
 
 We work with chunks of the data to make it more managable, but everyone has to name and size their chunks the same for our code to work for all.
 
 For chunking one of the bz2 files we use our chunkify function in functions.py.
 
-We have the data in a /Data folder.
-The .bz2 files should be named 'quotes-YEAR.json.bz2' with YEAR as the year of the quotes.
-THe chunks should be called 'quotes-YEAR-NUMBER.csv' with YEAR as the year and NUMBER as the number it gets from our chunkify function.
+THe chunks should be called 'quotes-YEAR-NUMBER.csv.bz2' with YEAR as the year and NUMBER as the number it gets from our chunkify function.
 
 This is the code to chunkify 2020:
 
