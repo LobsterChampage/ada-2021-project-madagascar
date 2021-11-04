@@ -62,5 +62,5 @@ def get_quotes(speaker, year):
     return df_all
 
 def make_csv(dataFrame, speaker, year, compression='bz2'):
-    dataFrame.to_csv('Data/' + speaker + '_quotes-' + str(year) + '.csv.' + compression)
+    dataFrame.to_csv('Data/' + speaker + '-quotes-' + str(year) + '.csv.' + compression)
 

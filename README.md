@@ -1,6 +1,6 @@
 # Project
 
-## Installations
+## Installations and updates
 
 We will use pandas and spacy
 
@@ -12,11 +12,12 @@ To install spacy with pip:
 pip install spacy
 ```
 
-We will use the en_core_web_sm and en_core_web_md for spacy which is downloaded in the terminal like this:
+We will use different models for spacy which is downloaded in the terminal like this:
 
 ```
 python -m spacy download en_core_web_sm
 python -m spacy download en_core_web_md
+python -m spacy download en_core_web_lg
 ```
 
 ## Setup
@@ -46,9 +47,20 @@ chunkify('Data/quotes-2020.json.bz2',100000,'quotes-2020-')
 
 Remember to set the size to 100000 and output `quotes-2020-` with the `-` at the end. And remember to output in `Data`.
 
-##
+## Dairy 1
 
-Process 1
+We have now made a smarter pipeline.
+
+Our functions goes into `functions.py` and we can chunk the dataset with `chunking.py` and extract the quotes we need with `extracting.py`.
+
+#### To summarize all the user needs to do:
+
+-   put the 6 quotebank files in /Data and name them accordingly `quotes-YEAR.json.bz2`
+-   run the code in `chunking.py`
+-   run the code in `extracting.py`
+-   use the 6 new small `SPEAKER-quotes-YEAR.csv.bz2`
+
+This only have to be done once and the files can be shared within the group.
 
 ## P2: Project proposal and initial analyses
 
