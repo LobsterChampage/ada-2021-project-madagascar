@@ -68,7 +68,7 @@ def get_quotes(speaker, year, timing=False):
     if timing:
         after = time.time()
         print(after - before, 's')
-        
+
     return df_all
 
 def make_csv(dataFrame, speaker, year, compression='bz2'):
@@ -83,7 +83,7 @@ def create_org_df(spacy_model, df, timing=False):
     #gets filled with dictionaries for rows
     quote_list = []
 
-    for i in range(0, a.shape[0]):
+    for i in range(0, df.shape[0]):
         quote = df.iloc[i]['quotation']
         # Extracts the quote and looks at it with nlp
         doc = spacy_nlp(quote)

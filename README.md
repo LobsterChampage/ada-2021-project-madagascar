@@ -55,12 +55,12 @@ Our functions goes into `functions.py` and we can chunk the dataset with `chunki
 
 #### To summarize all the user needs to do:
 
--   put the 6 quotebank files in /Data and name them accordingly `quotes-YEAR.json.bz2`
--   run the code in `chunking.py`
--   run the code in `extracting.py`
+-   put the 6 quotebank files in /Data and name them accordingly `quotes-YEAR.json.bz2` (Downloading can take ca. 1 hour)
+-   run the code in `chunking.py` (10 min - 1 hour 30 min per file, but can be parallellarized)
+-   run the code in `extracting.py` (ca 3 min - 25 min, but can be parallellarized)
 -   use the 6 new small `SPEAKER-quotes-YEAR.csv.bz2`
 
-This only have to be done once and the files can be shared within the group.
+This only have to be done once and then the files can be shared within the group.
 
 ## P2: Project proposal and initial analyses
 
