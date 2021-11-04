@@ -3,6 +3,8 @@ import bz2
 import os
 import numpy as np
 import time
+import spacy
+import re
 
 def chunkify(filepath, chunk_size, outputname, timing=False):
     """
@@ -64,3 +66,36 @@ def get_quotes(speaker, year):
 def make_csv(dataFrame, speaker, year, compression='bz2'):
     dataFrame.to_csv('Data/' + speaker + '-quotes-' + str(year) + '.csv.' + compression)
 
+def create_org_df(spacy_model, df, timing=False):
+    spacy_nlp = spacy.load(spacy_model)
+
+    #gets filled with dictionaries for rows
+    quote_list = []
+
+    if timing:
+        before = time.time()
+
+    for i in range(0, a.shape[0]):
+        quote = df.iloc[i]['quotation']
+        # Extracts the quote and looks at it with nlp
+        doc = spacy_nlp(quote)
+
+        for element in doc.ents:
+            # If a token gets categorized as ORG then it makes a dictionary for quote_list
+            if element.label_ == 'ORG':
+                quote_list.append({
+                    'ORG' : element,
+                    'date' : df.iloc[i]['date'],
+                    'numOccurrences' : df.iloc[i]['numOccurrences'],
+                    'quotation' : df.iloc[i]['quotation'],
+                    'quoteID' : df.iloc[i]['quoteID'],
+                    'probas' : df.iloc[i]['probas']})
+
+    # Turns quote_list into a DataFrame with keys as columns
+    org_df = pd.DataFrame.from_dict(quote_list)
+
+    if timing:
+        after = time.time()
+        print(after - before, 's')
+
+    return org_df
