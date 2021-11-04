@@ -11,6 +11,7 @@ def chunkify(filepath, chunk_size, outputname, timing=False):
     takes in the filepath as input
     takes in int as chunk_size
     outputname is what every output chunk starts their name as
+    timing is per chunk for benchmarks
     """
     batch_no = 1
     for chunk in pd.read_json(filepath, chunksize=chunk_size, lines=True, compression='bz2'):
@@ -45,10 +46,17 @@ def chunkify(filepath, chunk_size, outputname, timing=False):
         batch_no += 1
 
 def find_csv_filenames(path_to_dir, year):
+    """
+    finds all chunkfiles that belongs to a given year and is in a given directory
+    """
     filenames = os.listdir(path_to_dir)
     return [filename for filename in filenames if filename.startswith("quotes-" + str(year) + "-")]    
 
 def get_quotes(speaker, year, timing=False):
+    """
+    returns the dataset with only quotes from the given speaker from the files of a given year
+    timing for the whole function for benchmarks
+    """
     if timing:
         before = time.time()
 
@@ -72,9 +80,16 @@ def get_quotes(speaker, year, timing=False):
     return df_all
 
 def make_csv(dataFrame, speaker, year, compression='bz2'):
+    """
+    create a compressed csv of a dataframe of quotes for a speaker and a year
+    """
     dataFrame.to_csv('Data/' + speaker + '-quotes-' + str(year) + '.csv.' + compression)
 
 def create_org_df(spacy_model, df, timing=False):
+    """
+    create a dataframe with the organizations from the quotes in a dataframe
+    timing for the whole function including loading spacy_model
+    """
     if timing:
         before = time.time()
 
