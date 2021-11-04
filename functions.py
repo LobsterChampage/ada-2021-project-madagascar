@@ -48,7 +48,10 @@ def find_csv_filenames(path_to_dir, year):
     filenames = os.listdir(path_to_dir)
     return [filename for filename in filenames if filename.startswith("quotes-" + str(year) + "-")]    
 
-def get_quotes(speaker, year):
+def get_quotes(speaker, year, timing=False):
+    if timing:
+        before = time.time()
+
     cd = 'Data/' # Set working directory
     filenames = find_csv_filenames(cd, year) #Get chunks from a given year
     file_arr = np.array(filenames) # change list to numpy array
@@ -61,19 +64,24 @@ def get_quotes(speaker, year):
         current_df = pd.read_csv(name_2load)
         df_elo_current = current_df[current_df["speaker"]==speaker]
         df_all = pd.concat([df_all, df_elo_current], axis=0)
+
+    if timing:
+        after = time.time()
+        print(after - before, 's')
+        
     return df_all
 
 def make_csv(dataFrame, speaker, year, compression='bz2'):
     dataFrame.to_csv('Data/' + speaker + '-quotes-' + str(year) + '.csv.' + compression)
 
 def create_org_df(spacy_model, df, timing=False):
+    if timing:
+        before = time.time()
+
     spacy_nlp = spacy.load(spacy_model)
 
     #gets filled with dictionaries for rows
     quote_list = []
-
-    if timing:
-        before = time.time()
 
     for i in range(0, a.shape[0]):
         quote = df.iloc[i]['quotation']
