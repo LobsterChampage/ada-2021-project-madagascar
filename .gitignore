@@ -132,4 +132,8 @@ dmypy.json
 privateNotebook.ipynb
 
 #The folder with all the data and all the chunks
-Data/
+Data/backup
+
+.metals
+
+.vscode
