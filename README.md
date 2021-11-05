@@ -62,6 +62,14 @@ Our functions goes into `functions.py` and we can chunk the dataset with `chunki
 
 This only have to be done once and then the files can be shared within the group.
 
+## Dairy 2
+
+After dairy 1 is done we can now move all the quotebank dataset into a separate folder (outside Git or in what we called /backup in /Data). Then we can push all the Elon Musk quote datasets to git (because they are now small enough to be shared).
+
+This makes it easier for everyone to download without going through all the hassle above.
+
+We still have to be careful not to make unforseen changes to the dataset, but we also have the option to handle the data and filter it.
+
 ## P2: Project proposal and initial analyses
 
 When you are done with Homework 1, you will continue to work on the next project milestone. In Milestone 2, together with your team members, you will agree on, and refine, your project proposal. Your first task is to select a project. Even though we provide the main dataset for you to use, it is your responsibility to check that what you propose is feasible given the data (including any additional data you might bring in yourself), and to perform initial analyses.
