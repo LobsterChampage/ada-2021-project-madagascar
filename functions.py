@@ -4,6 +4,7 @@ import os
 import numpy as np
 import time
 import spacy
+import glob
 
 def chunkify(filepath, chunk_size, outputname, timing=False):
     """
@@ -121,3 +122,30 @@ def create_org_df(spacy_model, df, timing=False):
         print(after - before, 's')
 
     return org_df
+
+def combining_yearly_quotes(speaker):
+    # Load all of the speakers quotes of all years
+    path = 'Data/'
+    # The speakers data in Data/ should be 'SPEAKER-quotes-YEAR.csv.bz2'
+    # This will only grab files starting with the speaker's name
+    all_files = glob.glob(path + speaker +"*.bz2")
+
+    # Combine all speakers quotes from all the years 
+    li = []
+    for filename in all_files:
+        df = pd.read_csv(filename)
+        li.append(df)
+
+    frame = pd.concat(li, axis=0, ignore_index=True) 
+
+    # Save the extra column with original indicies before droping it
+    indices_pd = frame['Unnamed: 0']
+    numpy_array_indices_pd = indices_pd.to_numpy()
+    numpy_array_indices_pd
+
+    # Drop the extra column with original indicies
+    frame = frame.drop(columns="Unnamed: 0")
+    # Chnage new indicies with original indicies
+    frame.index = numpy_array_indices_pd
+
+    frame.to_csv(path + 'all-' + speaker + '-quotes.csv.bz2', compression='bz2')

@@ -137,3 +137,5 @@ Data/backup
 .metals
 
 .vscode
+
+/Data
