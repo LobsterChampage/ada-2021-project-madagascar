@@ -30,5 +30,6 @@ def stock_history(company_name, start_date, end_date, plot=False):
     if plot:
         a = df[['Close']]
         a.plot.line(title=f'{company_name} {start_date} - {end_date}')
+        plt.show()
     
     return df
