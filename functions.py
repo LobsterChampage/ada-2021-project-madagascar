@@ -4,7 +4,6 @@ import os
 import numpy as np
 import time
 import spacy
-import re
 
 def chunkify(filepath, chunk_size, outputname, timing=False):
     """
@@ -23,14 +22,14 @@ def chunkify(filepath, chunk_size, outputname, timing=False):
 
         chunk.to_csv(output, index=False)
 
-        compressionLevel = 9
+        compression_level = 9
         # Source file for bz2 comrpession
         source_file = output
         destination_file = output + '.bz2'
 
         with open(source_file, 'rb') as data:
             # Reads the content of the file and makes a compressed copy
-            compressed = bz2.compress(data.read(), compressionLevel)
+            compressed = bz2.compress(data.read(), compression_level)
         fh = open(destination_file, "wb")
         # Make a new compressed file with compressed content
         fh.write(compressed)
