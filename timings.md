@@ -25,11 +25,11 @@ Some tests were done in parallell which also decreased speeds.
 
 | Year | Chunksize | Chunks | Time   | Size   |
 | ---- | --------- | ------ | ------ | ------ |
-| 2015 | 200000    | ?      | ~2500s | ?GB    |
-| 2016 | 200000    | ?      | ~2100s | ?GB    |
+| 2015 | 200000    | 105    | ~2500s | 3.09GB |
+| 2016 | 200000    | 70     | ~2100s | 2.15GB |
 | 2017 | 200000    | 134    | ~4900s | 4.81GB |
-| 2018 | 200000    | ?      | ~4000s | ?GB    |
-| 2019 | 200000    | ?      | ~3200s | ?GB    |
+| 2018 | 200000    | 137    | ~4000s | 4.44GB |
+| 2019 | 200000    | 109    | ~3200s | 3.29GB |
 
 ## Crossvalidaton of calling for elon quotes on different chunksizes
 

@@ -147,7 +147,7 @@ def create_org_df(spacy_model, df, timing=False):
 
     # Turns quote_list into a DataFrame with keys as columns
     org_df = pd.DataFrame.from_dict(quote_list)
-    # Some quotes mention the same company multiple times, which results in duplicate rows for this df.
+    # Some quotes mention the same company multiple times, which results in duplicate rows for this df. (ca. 700 on 0 cutoff)
     org_df = org_df.drop_duplicates()
 
     if timing:
