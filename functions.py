@@ -19,7 +19,7 @@ def chunkify(filepath, chunk_size, outputname, timing=False):
         if timing:
             before = time.time()
 
-        output = 'Data/' + outputname + str(batch_no) + '.csv'
+        output = 'Data/' + outputname + '-' + str(batch_no) + '.csv'
 
         chunk.to_csv(output, index=False)
 
@@ -83,7 +83,37 @@ def make_csv(dataFrame, speaker, year, compression='bz2'):
     """
     create a compressed csv of a dataframe of quotes for a speaker and a year
     """
-    dataFrame.to_csv('Data/' + speaker + '-quotes-' + str(year) + '.csv.' + compression)
+    dataFrame.to_csv('Data/' + speaker + '-quotes-' + str(year) + '.csv.' + compression, index=False)
+
+def combining_yearly_quotes(speaker):
+    """
+    takes all the quote-files for a given speaker (each year) and combines them into a new single file
+    """
+    # Load all of the speakers quotes of all years
+    path = 'Data/'
+    # The speakers data in Data/ should be 'SPEAKER-quotes-YEAR.csv.bz2'
+    # This will only grab files starting with the speaker's name
+    all_files = glob.glob(path + speaker +"*.bz2")
+
+    # Combine all speakers quotes from all the years 
+    li = []
+    for filename in all_files:
+        df = pd.read_csv(filename)
+        li.append(df)
+
+    # Combines all the dataframes
+    frame = pd.concat(li, axis=0, ignore_index=True)
+
+    frame.to_csv(path + 'all-' + speaker + '-quotes.csv.bz2', compression='bz2', index=False)
+
+def high_probability_quotes(df, cutoff):
+    """
+    drops all quotes that don't have the main speaker's probability higher than the cutoff
+    """
+    # Creates a new column with the speakers probability as a float
+    df['probasE'] = df['probas'].str.extract(r'([\d][.][\d]*)').astype('float')
+    # Returns the rows with a value over the cutoff
+    return df[df['probasE'] >= cutoff]
 
 def create_org_df(spacy_model, df, timing=False):
     """
@@ -107,7 +137,8 @@ def create_org_df(spacy_model, df, timing=False):
             # If a token gets categorized as ORG then it makes a dictionary for quote_list
             if element.label_ == 'ORG':
                 quote_list.append({
-                    'ORG' : element,
+                    # Adds the the organization as text (to avoid problems with object not loading from memory)
+                    'ORG' : element.text,
                     'date' : df.iloc[i]['date'],
                     'numOccurrences' : df.iloc[i]['numOccurrences'],
                     'quotation' : df.iloc[i]['quotation'],
@@ -116,36 +147,11 @@ def create_org_df(spacy_model, df, timing=False):
 
     # Turns quote_list into a DataFrame with keys as columns
     org_df = pd.DataFrame.from_dict(quote_list)
+    # Some quotes mention the same company multiple times, which results in duplicate rows for this df.
+    org_df = org_df.drop_duplicates()
 
     if timing:
         after = time.time()
         print(after - before, 's')
 
     return org_df
-
-def combining_yearly_quotes(speaker):
-    # Load all of the speakers quotes of all years
-    path = 'Data/'
-    # The speakers data in Data/ should be 'SPEAKER-quotes-YEAR.csv.bz2'
-    # This will only grab files starting with the speaker's name
-    all_files = glob.glob(path + speaker +"*.bz2")
-
-    # Combine all speakers quotes from all the years 
-    li = []
-    for filename in all_files:
-        df = pd.read_csv(filename)
-        li.append(df)
-
-    frame = pd.concat(li, axis=0, ignore_index=True) 
-
-    # Save the extra column with original indicies before droping it
-    indices_pd = frame['Unnamed: 0']
-    numpy_array_indices_pd = indices_pd.to_numpy()
-    numpy_array_indices_pd
-
-    # Drop the extra column with original indicies
-    frame = frame.drop(columns="Unnamed: 0")
-    # Chnage new indicies with original indicies
-    frame.index = numpy_array_indices_pd
-
-    frame.to_csv(path + 'all-' + speaker + '-quotes.csv.bz2', compression='bz2')
