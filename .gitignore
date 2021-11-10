@@ -138,4 +138,5 @@ Data/backup
 
 .vscode
 
-/Data
+/Data/*
+!Data/all-Elon Musk-quotes.csv.bz2
