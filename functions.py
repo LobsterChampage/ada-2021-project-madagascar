@@ -5,6 +5,7 @@ import numpy as np
 import time
 import spacy
 import glob
+import matplotlib.pyplot as plt
 
 def chunkify(filepath, chunk_size, outputname, timing=False):
     """
@@ -155,3 +156,14 @@ def create_org_df(spacy_model, df, timing=False):
         print(after - before, 's')
 
     return org_df
+
+def plot_by_org (df, organisation):
+    """
+    Plots how many times a company is mentioned for each year.
+    """
+    df = df[df['ORG'] == organisation]
+    quotes_per_year = df.groupby(['year']).size()
+    quotes_per_year.plot.bar()
+    plt.xlabel("Years")
+    plt.ylabel("Number of quotes of Elon Musk about" + organisation)
+    plt.show()
