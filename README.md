@@ -67,3 +67,11 @@ For each company, we compute a random variable Y that describes the stock price 
 Step 4 - Fredrik and Adham
 Step 5 - Selima and Ferdinand
 Data story - Whole team
+
+## Questions for TA
+
+Is our statistical analysis (step 4 and 5) feasible and sufficient?
+
+Is the idea of our project too broad or too narrow?
+
+Do you have any suggestions? :)
