@@ -1,7 +1,3 @@
-# pip install yfinance
-# pip install pytrends
-# python3 -m pip install googlesearch-python
-
 import yfinance as yf
 from googlesearch import search
 import datetime as dt
