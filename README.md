@@ -34,7 +34,7 @@ By using pytrends, a Google trends API, you can find out how the popularity of a
 
 We first extracted Elon quotes from quotebank and combined them in a single folder for all years (lLoad Project notebook). We then used spacy, natural language processing, to extract the names of organizations from the quotes (and dropped quotes that don’t mention any organizations). The full pipeline for this step is summarized in figure 1.
 
-![figure 1](figures/figure1.pdf?raw=true)
+![figure 1](figures/figure1.svg?raw=true)
 
 #### Choose 5-10 public listed companies to analyze [Milestone 3]
 
