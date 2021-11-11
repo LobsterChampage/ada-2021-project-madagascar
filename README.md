@@ -9,14 +9,14 @@ There is no doubt that Elon Musk has had an impact on the financial market, and 
 As mentioned, the goal for this project is to see and quantify how Musk impacts both the financial market as well as whether he has an impact on the popularity of these companies. The research questions are therefore linked with these subjects.
 
 -   How does Musk impact the financial markets? (Yahoo finance)
--   Does Musk’s quotes impact the stock price?
--   Is his negative quotes more hurtful than the gain from his positive ones?
--   Does the company size play a role in the amount of change in the stock price?
+    -   Does Musk’s quotes impact the stock price?
+    -   Is his negative quotes more hurtful than the gain from his positive ones?
+    -   Does the company size play a role in the amount of change in the stock price?
 -   Does Musk’s quotes affect the popularity of companies? (pytrends)
     -   Does the company size play a role?
 -   Has his impact changed in any way?
--   Does his quotes have a bigger impact now than what they had in prior years?
--   How has Elon’s own popularity changed? (pytrends)
+    -   Does his quotes have a bigger impact now than what they had in prior years?
+    -   How has Elon’s own popularity changed? (pytrends)
 
 ## Additional datasets
 
@@ -53,9 +53,13 @@ For each company, we compute a random variable Y that describes the stock price 
 ## Proposed timeline
 
 27.11 Start working on Milestone 3 and decide the companies that will be analyzed
+
 28.11 Label the data Natural Language Processing sentiment analysis
+
 28.11 - 05.12 Carry out steps 4 and 5
+
 05.12 - 15.12 Start drafting the data story
+
 15.12 - 17.12 Finishing touches
 
 ## Organization within the team
