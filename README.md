@@ -7,14 +7,14 @@ Comments made by important people on companies could have a major impact on the 
 ## Research Questions
 
 -   How does Musk impact the financial markets?
--   Does Musk’s quotes impact the stock price?
--   Is his negative quotes more hurtful than the gain from his positive ones?
--   Does the company size play a role in the amount of change in the stock price?
+    -   Does Musk’s quotes impact the stock price?
+    -   Is his negative quotes more hurtful than the gain from his positive ones?
+    -   Does the company size play a role in the amount of change in the stock price?
 -   Does Musk’s quotes affect the popularity of companies?
--   Does the company size play a role?
+    -   Does the company size play a role?
 -   Has his impact changed in any way?
--   Do his quotes have a bigger impact now than what they had in prior years?
--   How has Elon’s own popularity changed?
+    -   Do his quotes have a bigger impact now than what they had in prior years?
+    -   How has Elon’s own popularity changed?
 
 ## Additional datasets
 
@@ -83,10 +83,11 @@ financials.py: This file contains the functions used to extract the financial da
 
 Timings.md: The role of this markdown is to provide some indication on how much time is used on loading the data.
 
-/Data: A folder with the data
-all-Elon Musk-quotes.csv.bz2 (all of Elon’s Quotes)
-high-prob-Elon Musk-quotes.csv.bz2 (0.7+ probability)
-org-lg-Elon Musk.csv.bz2 (dataset with organisations linked to quotes)
+/Data: A folder with the data:
+
+-   all-Elon Musk-quotes.csv.bz2 (all of Elon’s Quotes)
+-   high-prob-Elon Musk-quotes.csv.bz2 (0.7+ probability)
+-   org-lg-Elon Musk.csv.bz2 (dataset with organisations linked to quotes)
 
 ## Questions for TA
 
