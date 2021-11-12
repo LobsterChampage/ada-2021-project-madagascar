@@ -6,7 +6,7 @@ The times will vary on many factors. Most operations are single threaded, but ca
 
 It seems like a key factor for speed is just core clock speed on the CPU.
 
-It seems chunksizes doesn't matter unless they are big which might be due to memory bottlenecks with the computer that tested.
+It seems chunksizes doesn't matter unless they are big which might be due to memory bottlenecks.
 
 Some speeds may vary a lot depending on whether the laptop than ran the test was plugged in or ran on battery. Some tests were done in parallell which also decreased speeds so the numbers are not comparable, this is just for reference/indication.
 
