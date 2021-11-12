@@ -6,8 +6,20 @@ plt.style.use('seaborn')
 
 def get_dates(start_date, weeks, days):
     """
-    Takes in the start date as a string on the format from Quotebank and returns the start end end dates formatted for yFinance
+    This functions takes in the start date as a string from Quotebank and returns the start and end dates formatted for 
+    yFinance. 
+    
+    INPUTS: 
+    start_date: date extracted from Quotebank as a string (in our case the date is extracted from the data file we created).
+    weeks: The number of weeks to add to the start date to obtain the end date.
+    days: The number of days to add to the start date to obtain the end date. 
+    end_date = startdate + weeks + days 
+    
+    OUTPUT: 
+    start_date: retruns start date formatted for yFinance. 
+    end_date: retruns end date formatted for yFinance. 
     """
+
     start_date = dt.datetime.strptime(start_date, '%Y-%m-%d %H:%M:%S')
     end_date = start_date + dt.timedelta(weeks=weeks, days=days)
     return start_date.strftime('%Y-%m-%d'), end_date.strftime('%Y-%m-%d')

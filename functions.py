@@ -9,10 +9,13 @@ import matplotlib.pyplot as plt
 
 def chunkify(filepath, chunk_size, outputname, timing=False):
     """
-    takes in the filepath as input
-    takes in int as chunk_size
-    outputname is what every output chunk starts their name as
-    timing is per chunk for benchmarks
+    This function chunk quotebank files to multiple smaller files. 
+    
+    INPUTS: 
+    filepath: path of quotebank file to chunk. 
+    chunk_size: (int) it is a row number where the file will be chuncked at
+    outputname: is what every output chunk starts their name as
+    timing:  is per chunk for benchmarks
     """
     batch_no = 1
     for chunk in pd.read_json(filepath, chunksize=chunk_size, lines=True, compression='bz2'):
@@ -48,7 +51,7 @@ def chunkify(filepath, chunk_size, outputname, timing=False):
 
 def find_csv_filenames(path_to_dir, year):
     """
-    finds all chunkfiles that belongs to a given year and is in a given directory
+    Finds all chunkfiles that belongs to a given year and is in a given directory
     """
     filenames = os.listdir(path_to_dir)
     return [filename for filename in filenames if filename.startswith("quotes-" + str(year) + "-")]    
