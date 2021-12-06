@@ -7,6 +7,9 @@ import spacy
 import glob
 import matplotlib.pyplot as plt
 
+import nltk
+from nltk.sentiment.vader import SentimentIntensityAnalyzer
+
 def chunkify(filepath, chunk_size, outputname, timing=False):
     """
     This function chunk quotebank files to multiple smaller files. 
@@ -170,3 +173,30 @@ def plot_by_org (df, organisation):
     plt.xlabel("Years")
     plt.ylabel("Number of quotes of Elon Musk about" + organisation)
     plt.show()
+
+    
+    
+    
+def add_polarity_score_to_df(df):
+    """
+    This function takes in the dataframe with quotations and then add to it a column 'Score' that has the compound score from the Sentiment analysis, which is a text analysis method that detects polarity. So the score here is the compound polairty score of the quote
+    
+    INPUTS: 
+    
+    df:     Data frame with quotes.
+    
+    ---------------------------------------------------------
+    OUTPUTS: 
+    
+    df_copy: Data frame with quotes and polarity score.
+    ---------------------------------------------------------
+    Warning:This function runs the following command "nltk.download('vader_lexicon')"
+    """
+    nltk.download('vader_lexicon')
+    sid = SentimentIntensityAnalyzer()
+    
+    df_copy = df.copy()
+    df_copy['scores'] = df['quotation'].apply(lambda quotation: sid.polarity_scores(quotation))
+    df_copy['Score']  = df_copy['scores'].apply(lambda score_dict: score_dict['compound'])
+    df_copy = df_copy.drop(['scores'], axis=1)
+    return df_copy
