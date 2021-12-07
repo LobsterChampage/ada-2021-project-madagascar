@@ -173,8 +173,6 @@ def plot_by_org (df, organisation):
     plt.show()
 
     
-    
-    
 def add_polarity_score_to_df(df):
     """
     This function takes in the dataframe with quotations and then add to it a column 'Score' that has the compound score from the Sentiment analysis, which is a text analysis method that detects polarity. So the score here is the compound polairty score of the quote
@@ -193,4 +191,31 @@ def add_polarity_score_to_df(df):
     
     df_copy = df.copy()
     df_copy['scores'] = df_copy['quotation'].apply(lambda quotation: sid.polarity_scores(quotation)['compound'])
+    return df_copy
+
+def add_sentiment_category(df, neg_treshhold, pos_treshhold):
+    """
+    This function takes in the dataframe with polarity(sentiment) score and add a column 'sentiment_category'
+    ---------------------------------------------------------
+    INPUTS: 
+    
+    df:     Data frame with sentiment scores.
+    neg_treshhold: the threshhold for a value to be categorized as negative
+    pos_treshhold: the threshhold for a value to be categorized as positive
+    ---------------------------------------------------------
+    OUTPUTS: 
+    
+    df_copy: Data frame with added column 'sentiment_category'.
+    ---------------------------------------------------------
+    """
+    def categorize(score):
+        if score <= neg_treshhold:
+            return -1
+        elif score >= pos_treshhold:
+            return 1
+        else:
+            return 0
+    
+    df_copy = df.copy()
+    df_copy['sentiment_category'] = df_copy['scores'].apply(lambda s: categorize(s))
     return df_copy
