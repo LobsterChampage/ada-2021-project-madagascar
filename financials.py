@@ -36,11 +36,15 @@ def ticker_of_company(company_name):
 def stock_history(company_name, start_date, end_date, plot=False):
     """
     Returns yFinance dataframe of stock info for the company between given dates
+    Returns close price, volume, and marketcap
     """
     ticker = ticker_of_company(company_name)
     company = yf.Ticker(ticker)
     
-    df = company.history(start=start_date, end=end_date)[['Close']]
+    df = company.history(start=start_date, end=end_date)[['Close', 'Volume']]
+    numberOfShares = company.info['sharesOutstanding']
+    
+    df['MarketCap'] = numberOfShares*df['Close']
 
     if plot:
         a = df[['Close']]
@@ -48,6 +52,7 @@ def stock_history(company_name, start_date, end_date, plot=False):
         plt.show()
     
     return df
+
 
 # The functions below are used to analyze the change in stock prices over a given time period
 
