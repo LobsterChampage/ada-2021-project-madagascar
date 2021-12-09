@@ -33,6 +33,23 @@ def ticker_of_company(company_name):
     result = result[0].lower()
     return result.split('/')[-2]
 
+
+def stock_info_date(company_name, date):
+    """
+    Returns close price, volume, and marketcap
+    """
+    ticker = ticker_of_company(company_name)
+    company = yf.Ticker(ticker)
+    
+    df = company.history(start=date)[['Close', 'Volume']]
+    numberOfShares = company.info['sharesOutstanding']
+    df['MarketCap'] = numberOfShares*df['Close']
+    
+    return df.iloc[1]
+
+
+
+#Should rewrite this to use stock_info_date
 def stock_history(company_name, start_date, end_date, plot=False):
     """
     Returns yFinance dataframe of stock info for the company between given dates
