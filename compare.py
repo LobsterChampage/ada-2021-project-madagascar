@@ -1,5 +1,5 @@
 import pandas as pd
-from finacials import stock_info_date
+from financials import stock_info_date
 from popularity import trending_history
 
 def compareCompanies(companies, date):
