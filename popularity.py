@@ -18,3 +18,15 @@ def trending_history(kw_list, start_date, end_date=False, plot=False):
         plt.show()
     
     return df
+
+def mostTrending(kw_list, start_date, end_date=False):
+    if not end_date:
+        end_date = start_date
+    
+    pytrends = TrendReq(hl='en-US', tz=360)
+    pytrends.build_payload(kw_list, cat=0, timeframe=f'{start_date} {end_date}', geo='', gprop='')
+    df = pytrends.interest_over_time()
+    del df['isPartial']
+    
+        
+    #dividing list into sequences of five 

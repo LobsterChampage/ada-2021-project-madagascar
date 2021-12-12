@@ -4,7 +4,7 @@ from popularity import trending_history
 
 def compareCompanies(companies, date):
     # Returns a df with the following columns: ['Date', 'Close', 'Volume', 'MarketCap', 'Popularity']
-    df = pd.DataFrame(companies, columns=['Company']).set_index('Company')
+    df = pd.DataFrame(companies, columns=['Name'])
     df['Date'] = date
     
     marketData = []
