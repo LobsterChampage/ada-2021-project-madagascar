@@ -105,30 +105,34 @@ def indexStockPrice(companies, start_date, end_date):
         df[companies[i]] = stock_history(ticker_of_company(companies[i]), start_date, end_date)
     return df
 
+def changeInPriceFromStart(company_name, start_date, end_date):
+    """
+    Returns the percentage change for a given day compared to the first day
+    """
+    df = stock_history(company_name, start_date, end_date)
+    result = [1]
+    for i in range(len(df)-1):
+        changeFromStart = (df.iloc[i+1])/df.iloc[0]
+        result.append(float(changeFromStart))
+    return result
+
+
+
+def changeIndex(companies, start_date, end_date):
+    """
+    As dailyChangeIndex but for changeInPriceFromStart instead
+    """
+    df = pd.DataFrame()
+    for i in range(0, len(companies)):
+        df[companies[i]] = changeInPriceFromStart(companies[i], start_date, end_date)
+    return df
+
 def createIndex(companies, start_date, end_date):
     """
     Returns the proper (as in financial markets, but a simplification) index of a list of companies
     Each stock is valued the same, that is they affect the index equally
     """
-    def changeInPriceFromStart(company_name, start_date, end_date):
-        """
-        Returns the percentage change for a given day compared to the first day
-        """
-        df = stock_history(company_name, start_date, end_date)
-        result = [1]
-        for i in range(len(df)-1):
-            changeFromStart = (df.iloc[i+1])/df.iloc[0]
-            result.append(float(changeFromStart))
-        return result
-    
-    def changeIndex(companies, start_date, end_date):
-        """
-        As dailyChangeIndex but for changeInPriceFromStart instead
-        """
-        df = pd.DataFrame()
-        for i in range(0, len(companies)):
-            df[companies[i]] = changeInPriceFromStart(companies[i], start_date, end_date)
-        return df
+
     
     df = changeIndex(companies, start_date, end_date)
     df['Index'] = df.iloc[:].mean(axis=1)
