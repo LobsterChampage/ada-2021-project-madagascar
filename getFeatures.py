@@ -42,7 +42,7 @@ def create_data(companies_list,elon_org_df):
     return data
 def getFeatures(elon_org_df):
     #Apple: 
-    data_Apple = create_data(['Microsoft','IBM','Samsung','Dell','Apple'],elon_org_df )
+    data_Apple = create_data(['Microsoft','IBM','Samsung','Lenovo','Apple'],elon_org_df )
     #Twitter 
     data_Twitter = create_data(['Google','Facebook','Snapchat','Pinterest','Twitter'],elon_org_df)
     #Ford
