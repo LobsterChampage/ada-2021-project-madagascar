@@ -190,7 +190,7 @@ def add_polarity_score_to_df(df):
     sid = SentimentIntensityAnalyzer()
     
     df_copy = df.copy()
-    df_copy['scores'] = df_copy['quotation'].apply(lambda quotation: sid.polarity_scores(quotation)['compound'])
+    df_copy['sentiment'] = df_copy['quotation'].apply(lambda quotation: sid.polarity_scores(quotation)['compound'])
     return df_copy
 
 def add_sentiment_category(df, neg_treshhold, pos_treshhold):
@@ -217,5 +217,5 @@ def add_sentiment_category(df, neg_treshhold, pos_treshhold):
             return 0
     
     df_copy = df.copy()
-    df_copy['sentiment_category'] = df_copy['scores'].apply(lambda s: categorize(s))
+    df_copy['sentiment_category'] = df_copy['sentiment'].apply(lambda s: categorize(s))
     return df_copy
