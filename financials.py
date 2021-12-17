@@ -166,6 +166,44 @@ def get_time_from_df (df):
 
 
 
+
+def percentage_change_part1(company_name, start_date, end_date,cond_end_date,add_to_end=2,subtract_to_start=2):
+    """
+    Returns the percentage change for a given day compared to the first day
+    """
+    if (cond_end_date == 0):
+        df = stock_history(company_name, start_date, end_date)
+        x1 = df.iloc[0,0]
+        x2 = df.iloc[-1,0]
+        perc_change = round(( (x2-x1)/(x1) ) * 100 ,2)
+    elif (cond_end_date == 1):
+        
+        current_date = start_date
+        current_date_temp = datetime.datetime.strptime(current_date, '%Y-%m-%d')
+        new_end_date = current_date_temp + datetime.timedelta(days=add_to_end)
+        new_end_date  = new_end_date.date()                                               
+        new_start_date =  current_date_temp - datetime.timedelta(days=subtract_to_start)
+        new_start_date = new_start_date.date()
+        df = stock_history(company_name, new_start_date, new_end_date)
+        x1 = df.iloc[0,0]
+        x2 = df.iloc[-1,0]
+        perc_change = round(( (x2-x1)/(x1) ) * 100 ,2)
+        
+    return perc_change
+
+def get_perc_change_array(df):
+    dates_me = get_time_from_df(df)
+    n_points = df.shape[0]
+    all_perc = []
+    for ii in range(0,n_points):
+        company_name = df['ORG'].iloc[ii]
+        start_date = dates_me[ii]
+        end_date = dates_me[ii]
+        current_perc = percentage_change_part1(company_name, start_date, end_date,1,2,2)
+        all_perc.append(current_perc)
+    return all_perc
+
+
 def googleTrends_perc_change(company_name, quote_date):
     """
     This functions calculate the stock popularity change for a given company between a given date
