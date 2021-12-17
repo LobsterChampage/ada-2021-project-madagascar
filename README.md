@@ -2,6 +2,25 @@
 
 Link to our data story: https://lobsterchampagne.github.io/project-madagascar-data-story/
 
+
+# Project 3
+
+1. Follow this to extract the relevant data
+2. Data Exploring (Fredrik)
+3. Sentiment analysis (Adham)
+4. Regression (yfinance)
+    4.1 Apple (yfinance)
+    4.2 Ford (yfinance)
+    4.3 Tesla (yfinance)
+5. Regression (google_trends)
+    4.1 Apple (google_trends)
+    4.2 Ford (google_trends)
+    4.3 Tesla (google_trends)
+6. Observational study (Selima & Ferdinand)
+7. Linear Regression (Selima)
+
+Website (Fredrik)
+
 ## Abstract
 
 Comments made by important people on companies could have a major impact on the business’s stock price and even net sales. For example, not so long-ago Elon musk tweeted that Tesla will stop accepting Bitcoin as a method of payment. Shortly after that, the bitcoin price dropped dramatically [[1]](https://www.cnbc.com/2021/05/13/bitcoin-btc-price-falls-after-tesla-stops-car-purchases-with-crypto.html). We think it would be interesting to extract, filter and tell a story about how Musk’s quotes such as this one and similar ones, affect companies' stock price and popularity. The idea of the project is to evaluate the impact Elon Musk has on the financial market and see whether his words have a big influence on the financial world or not.
@@ -90,9 +109,3 @@ Timings.md: The role of this markdown is to provide some indication on how much 
 -   all-Elon Musk-quotes.csv.bz2 (all of Elon’s Quotes)
 -   high-prob-Elon Musk-quotes.csv.bz2 (0.7+ probability)
 -   org-lg-Elon Musk.csv.bz2 (dataset with organisations linked to quotes)
-
-## Questions for TA
-
-Is our statistical analysis (step 4 and 5) feasible and sufficient?
-
-Is the idea of our project too broad or too narrow?
