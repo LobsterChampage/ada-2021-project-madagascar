@@ -146,8 +146,4 @@ Data/backup
 !Data/FinalFeatures2.csv.bz2
 !Data/FinalFeatures3.csv.bz2
 
-privateNotebook2.ipynb
-privateNotebook3.ipynb
-privateNotebook4.ipynb
-privateNotebook5.ipynb
-privateNotebook6.ipynb
+privNotebooks
