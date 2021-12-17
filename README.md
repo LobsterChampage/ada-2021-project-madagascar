@@ -1,5 +1,7 @@
 # The Elon effect
 
+Link to our data story: https://lobsterchampagne.github.io/project-madagascar-data-story/
+
 ## Abstract
 
 Comments made by important people on companies could have a major impact on the business’s stock price and even net sales. For example, not so long-ago Elon musk tweeted that Tesla will stop accepting Bitcoin as a method of payment. Shortly after that, the bitcoin price dropped dramatically [[1]](https://www.cnbc.com/2021/05/13/bitcoin-btc-price-falls-after-tesla-stops-car-purchases-with-crypto.html). We think it would be interesting to extract, filter and tell a story about how Musk’s quotes such as this one and similar ones, affect companies' stock price and popularity. The idea of the project is to evaluate the impact Elon Musk has on the financial market and see whether his words have a big influence on the financial world or not.
