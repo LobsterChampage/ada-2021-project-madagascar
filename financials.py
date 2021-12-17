@@ -5,6 +5,7 @@ import datetime as dt
 import matplotlib.pyplot as plt
 import dateutil.parser as dparser
 import datetime
+from pytrends.request import TrendReq
 
 
 plt.style.use('seaborn')
