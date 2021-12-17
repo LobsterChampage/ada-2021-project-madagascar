@@ -35,7 +35,11 @@ def ticker_of_company(company_name):
     """
     result = search("Yahoo Finance " + company_name)
     result = result[0].lower()
-    return result.split('/')[-2]
+    result = result.split('/')
+    #for special cases...
+    if result[-2] == 'finance.yahoo.com':
+        return result[-1].split('=')[-1]
+    return result[-2]
 
 
 def stock_info_date(company_name, date):
